@@ -20,8 +20,8 @@ def mostrar_metricas(modelo, y_test, y_pred):
         f"Modelo: {modelo}\n\n"
         f"---------------------\n\n"
         f"Precisión: {precision:.2f}%\n"
-        f"F1-Score: {f1:.2f}%\n"
-        f"Recall: {recall:.2f}%\n\n"
+        # f"F1-Score: {f1:.2f}%\n"
+        # f"Recall: {recall:.2f}%\n\n"
         f"Reporte de Clasificación:\n{report}"
     )
     ax[0].text(0.01, 0.99, text, fontsize=11, va='top', ha='left', wrap=True)  # Texto ajustado a la columna
