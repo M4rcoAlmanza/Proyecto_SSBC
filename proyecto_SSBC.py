@@ -27,10 +27,6 @@ for col in columnas_categoricas:
     le = LabelEncoder()
     df[col] = le.fit_transform(df[col])
     encoders[col] = le
-
-# print("Mapeo de NObeyesdad (valor numérico -> categoría):")
-# for num, clase in enumerate(encoders['NObeyesdad'].classes_):
-#     print(f"{num}: {clase}")
     
 # ------------------------------------------------------------------------------------------------
 # DEFINIR EJES
@@ -52,7 +48,7 @@ svc = SVC(kernel='linear', C=3, random_state=42, class_weight='balanced')
 # Validación cruzada estratificada
 cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-# Von validación cruzada
+# Con validación cruzada
 y_clas = cross_val_predict(svc, X, y, cv=cv)
 mostrar_metricas("SVM", y, y_clas)
 
@@ -62,6 +58,6 @@ svc.fit(X, y)
 # ------------------------------------------------------------------------------------------------
 # GUARDAR MODELO Y ESCALADOR
 # ------------------------------------------------------------------------------------------------
-joblib.dump(svc, 'Modelos/modelo.pkl')
-joblib.dump(scaler, 'Modelos/scaler.pkl')
+# joblib.dump(svc, 'Modelos/modelo.pkl')
+# joblib.dump(scaler, 'Modelos/scaler.pkl')
 print("Modelo y escalador guardados exitosamente.")
